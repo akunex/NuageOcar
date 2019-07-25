@@ -61,7 +61,7 @@ public class CharacterMotor : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
         // On ne prend pas en compte le y pour éviter qu'il cours à l'infinie sur du relief. Quand on clique sur du relief, le point va en dessous.
-        // Il faut trouver un moyen que ça ne le fasse pas
+        // Il faut trouver un moyen que ça ne le fasse pas (algo de pathfinding ?)
         if (transform.position.x == targetPosition.x && transform.position.z == targetPosition.z || Vector3.Distance(transform.position, targetPosition) < minDistance)
             isMoving = false;
 
