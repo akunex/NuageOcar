@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class CharacterMotor : MonoBehaviour
 {
-
+    
     public Camera cam;
     public NavMeshAgent agent;
     private Vector3 targetPosition;
@@ -20,33 +20,42 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
+        string tag = "";
         if (Input.GetMouseButtonDown(0))
         {
-            isMoving = true;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                agent.SetDestination(hit.point);
-                targetPosition = hit.point;
+                tag = hit.transform.gameObject.tag;
+                if (tag != "Not Clickable")
+                {
+
+                    isMoving = true;
+                    agent.SetDestination(hit.point);
+                    targetPosition = hit.point;
+                }
             }
+
             
         }
-        // Il y a peut être une meilleur solution ?
-        Debug.Log(Vector3.Distance(transform.position, targetPosition));
-        Debug.DrawLine(transform.position, targetPosition, Color.red);
-        if (Vector3.Distance(transform.position, targetPosition) < 1)
+        if (tag != "Not Clickable")
         {
-            isMoving = false;
-        }
-        if (isMoving)
-        {
-            this.GetComponent<Animation>().Play("run");
-        }
-        else
-        {
-            this.GetComponent<Animation>().Play("idle");
+            // Il y a peut être une meilleur solution ?
+            Debug.DrawLine(transform.position, targetPosition, Color.red);
+            if (Vector3.Distance(transform.position, targetPosition) < 1)
+            {
+                isMoving = false;
+            }
+            if (isMoving)
+            {
+                this.GetComponent<Animation>().Play("run");
+            }
+            else
+            {
+                this.GetComponent<Animation>().Play("idle");
+            }
         }
     }
 }
