@@ -7,13 +7,14 @@ public class PlayerUI : MonoBehaviour
     public float CurrentHealth { get; set; }
     public float MaxHealth { get; set; }
 
-    public Slider healthbar; 
+    public Slider healthbar;
+    public Text displayHealth;
 
     void Start()
     {
         MaxHealth = 100f;
         CurrentHealth = MaxHealth;
-
+        displayHealth.text = CurrentHealth.ToString();
         healthbar.value = CalculateHealth();
     }
 
@@ -24,6 +25,7 @@ public class PlayerUI : MonoBehaviour
         {
             DealDamages(10);
         }
+        displayHealth.text = CurrentHealth.ToString();
     }
 
     void DealDamages(float damageValue)
