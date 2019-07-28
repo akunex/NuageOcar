@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Not Clickable
+  - AI
   layers:
   - Default
   - TransparentFX
