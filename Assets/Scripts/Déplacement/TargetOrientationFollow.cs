@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class TargetOrientationFollow : MonoBehaviour
 {
-    public Transform target;
+    public Vector3 position;
+    public Vector3 rotation;
+    public float near;
+    public float far;
+    public Camera camera;
+
 
     void Update()
     {
-        transform.LookAt(target.position);
+        float minFov = 15f;
+        float maxFov = 90f;
+        float sensitivity = 10f;
+        camera.transform.position = position;
+        camera.transform.rotation = Quaternion.Euler(rotation);
+        camera.nearClipPlane = near;
+        camera.farClipPlane = far;
+
     }
 }
