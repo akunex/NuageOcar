@@ -25,8 +25,6 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
-        //if (agent.tag == "Player")
-        //{
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
@@ -38,20 +36,12 @@ public class CharacterMotor : MonoBehaviour
                 if (tag != "Not Clickable")
                 {
                     isMoving = true;
-                    Debug.Log(hit.point);
                     agent.SetDestination(hit.point);
                     inputTargetPosition = hit.point;
                 }
             }
 
 
-        }
-
-        Debug.Log(Vector3.Distance(transform.position, inputTargetPosition));
-        if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
-
-        {
-            isMoving = false;
         }
         if (isMoving)
         {
@@ -83,17 +73,6 @@ public class CharacterMotor : MonoBehaviour
             displayMeters.enabled = false;
             displayMeters.text = "0 mètres";
         }
-
-        //    }
-        //    else if(agent.tag == "AI")
-        //    {
-        //        MoveNPC();
-        //    }
-    }
-
-    void MoveNPC()
-    {
-
     }
 
     void ShowPathNavMesh()
