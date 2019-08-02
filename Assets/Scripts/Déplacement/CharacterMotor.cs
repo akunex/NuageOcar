@@ -27,9 +27,9 @@ public class CharacterMotor : MonoBehaviour
         //if (agent.tag == "Player")
         //{
         RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -56,20 +56,16 @@ public class CharacterMotor : MonoBehaviour
         {
             this.GetComponent<Animation>().Play("idle");
         }
-        if (tag != "Not Clickable")
+        if (Physics.Raycast(ray, out hit))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                targetPosition = hit.point;
+            targetPosition = hit.point;
 
-                image.enabled = true;
-                displayMeters.enabled = true;
-                ShowPathNavMesh();
-                float meters = CalculatePathLength(targetPosition) / 20;
-                displayMeters.text = meters.ToString("0") + " mètres";
+            image.enabled = true;
+            displayMeters.enabled = true;
+            ShowPathNavMesh();
+            float meters = CalculatePathLength(targetPosition) / 20;
+            displayMeters.text = meters.ToString("0") + " mètres";
 
-            }
         }
         //    }
         //    else if(agent.tag == "AI")
