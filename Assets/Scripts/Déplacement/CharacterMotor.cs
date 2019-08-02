@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class CharacterMotor : MonoBehaviour
 {
-    
+
     public Camera cam;
     public NavMeshAgent agent;
     private Vector3 targetPosition;
+    private Vector3 inputTargetPosition;
     public Text displayMeters;
     public Image image;
 
@@ -23,8 +24,25 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
+
+        //string tag = "";
+        //Vector3 mouse = Input.mousePosition;
+        //Vector3 transformMouse = cam.ScreenToWorldPoint(mouse);
+        //Ray ray = cam.ScreenPointToRay(mouse);
         RaycastHit hit;
-        string tag = "";
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    tag = hit.transform.gameObject.tag;
+        //    if (tag != "Not Clickable")
+        //    {
+        //        image.enabled = true;
+        //        displayMeters.enabled = true;
+        //        ShowPathNavMesh();
+        //        float meters = CalculatePathLength(hit.point) / 20;
+        //        displayMeters.text = meters.ToString("0") + " mètres";
+        //    }
+        //}
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -36,42 +54,45 @@ public class CharacterMotor : MonoBehaviour
                 {
                     isMoving = true;
                     agent.SetDestination(hit.point);
-                    targetPosition = hit.point;
+                    inputTargetPosition = hit.point;
                 }
             }
 
-            
+
         }
         if (tag != "Not Clickable")
         {
-            
-            // Il y a peut être une meilleur solution ?
-            // Debug.DrawLine(transform.position, targetPosition, Color.red);
-            if (Vector3.Distance(transform.position, targetPosition) < 1)
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
             {
-                isMoving = false;
-            }
-            if (isMoving)
-            {
+                targetPosition = hit.point;
+
                 image.enabled = true;
                 displayMeters.enabled = true;
-                this.GetComponent<Animation>().Play("run");
                 ShowPathNavMesh();
-                float meters = CalculatePathLength(targetPosition)/20;
+                float meters = CalculatePathLength(targetPosition) / 20;
                 displayMeters.text = meters.ToString("0") + " mètres";
-            }
-            else
-            {
-                image.enabled = false;
-                displayMeters.enabled = false;
-                displayMeters.text = "0 mètres";
-                this.GetComponent<Animation>().Play("idle");
+                // Il y a peut être une meilleur solution ?
+                // Debug.DrawLine(transform.position, targetPosition, Color.red);
+                if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
+                {
+                    isMoving = false;
+                }
+                if (isMoving)
+                {
+                    this.GetComponent<Animation>().Play("run");
+                }
+                else
+                {
+                    this.GetComponent<Animation>().Play("idle");
+                }
             }
         }
     }
 
     void ShowPathNavMesh()
     {
+        
         var nav = GetComponent<NavMeshAgent>();
         if (nav == null || nav.path == null)
             return;
@@ -85,15 +106,21 @@ public class CharacterMotor : MonoBehaviour
             line.SetColors(Color.cyan, Color.cyan);
         }
 
+        NavMeshPath navPath = new NavMeshPath();
+        if (agent.enabled)
+            agent.CalculatePath(targetPosition, navPath);
+
         var path = nav.path;
 
-        line.SetVertexCount(path.corners.Length);
+        line.SetVertexCount(navPath.corners.Length);
 
-        for (int i = 0; i < path.corners.Length; i++)
+        for (int i = 0; i < navPath.corners.Length; i++)
         {
-            line.SetPosition(i, path.corners[i]);
+            line.SetPosition(i, navPath.corners[i]);
         }
+
     }
+
 
     float CalculatePathLength(Vector3 targetPosition)
     {
