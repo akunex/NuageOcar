@@ -16,6 +16,7 @@ public class CharacterMotor : MonoBehaviour
 
     public AnimationClip run;
     public AnimationClip idle;
+    private float metersPoint;
 
     void Start()
     {
@@ -45,14 +46,19 @@ public class CharacterMotor : MonoBehaviour
 
 
         }
-        //Debug.Log(Vector3.Distance(transform.position, inputTargetPosition));
-        if (Vector3.Distance(transform.position, inputTargetPosition) < 2)
+
+        Debug.Log(Vector3.Distance(transform.position, inputTargetPosition));
+        if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
+
         {
             isMoving = false;
         }
         if (isMoving)
         {
             this.GetComponent<Animation>().Play("run");
+            metersPoint = CalculatePathLength(inputTargetPosition) / 20;
+            if (metersPoint < 0.2)
+                isMoving = false;
         }
         else
         {
@@ -69,6 +75,15 @@ public class CharacterMotor : MonoBehaviour
             displayMeters.text = meters.ToString("0") + " mètres";
 
         }
+
+        tag = hit.transform.gameObject.tag;
+        if (tag == "Not Clickable")
+        {
+            image.enabled = false;
+            displayMeters.enabled = false;
+            displayMeters.text = "0 mètres";
+        }
+
         //    }
         //    else if(agent.tag == "AI")
         //    {
