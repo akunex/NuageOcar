@@ -24,7 +24,7 @@ public class TargetOrientationFollow : MonoBehaviour
         near = -1000;
         far = 1000;
         //Set des paramètres de zoom
-        maxZoom = 15f;
+        maxZoom = 70f;
         minZoom = 150f;
         sensitivity = 10f;
     }
