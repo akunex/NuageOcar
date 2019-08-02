@@ -505,7 +505,7 @@ GameObject:
   m_Name: Cube (8)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &557607866
@@ -1367,7 +1367,7 @@ GameObject:
   m_Name: Cube (9)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &873357270
@@ -1475,7 +1475,7 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &879370028
@@ -1675,7 +1675,7 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1022830553
@@ -1857,7 +1857,7 @@ GameObject:
   m_Name: Cube (6)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1246073735
@@ -2206,7 +2206,7 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1350270677
@@ -2466,7 +2466,7 @@ GameObject:
   m_Name: Cube (11)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1490558678
@@ -2574,7 +2574,7 @@ GameObject:
   m_Name: Cube (16)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1515727737
@@ -2851,7 +2851,7 @@ GameObject:
   m_Name: Cube (4)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1611720823
@@ -3050,7 +3050,7 @@ GameObject:
   m_Name: Cube (14)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1739715127
@@ -3249,7 +3249,7 @@ GameObject:
   m_Name: Cube (15)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1810032123
@@ -3357,7 +3357,7 @@ GameObject:
   m_Name: Cube (10)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1936442239
@@ -3465,7 +3465,7 @@ GameObject:
   m_Name: Cube
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1937242459
@@ -3674,7 +3674,7 @@ GameObject:
   m_Name: Cube (13)
   m_TagString: Not Clickable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2007699752
