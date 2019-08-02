@@ -37,6 +37,7 @@ public class CharacterMotor : MonoBehaviour
                 if (tag != "Not Clickable")
                 {
                     isMoving = true;
+                    Debug.Log(hit.point);
                     agent.SetDestination(hit.point);
                     inputTargetPosition = hit.point;
                 }
@@ -44,7 +45,8 @@ public class CharacterMotor : MonoBehaviour
 
 
         }
-        if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
+        //Debug.Log(Vector3.Distance(transform.position, inputTargetPosition));
+        if (Vector3.Distance(transform.position, inputTargetPosition) < 2)
         {
             isMoving = false;
         }
