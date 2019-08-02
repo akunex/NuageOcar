@@ -24,25 +24,9 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
-
-        //string tag = "";
-        //Vector3 mouse = Input.mousePosition;
-        //Vector3 transformMouse = cam.ScreenToWorldPoint(mouse);
-        //Ray ray = cam.ScreenPointToRay(mouse);
-        RaycastHit hit;
-        //if (Physics.Raycast(ray, out hit))
+        //if (agent.tag == "Player")
         //{
-        //    tag = hit.transform.gameObject.tag;
-        //    if (tag != "Not Clickable")
-        //    {
-        //        image.enabled = true;
-        //        displayMeters.enabled = true;
-        //        ShowPathNavMesh();
-        //        float meters = CalculatePathLength(hit.point) / 20;
-        //        displayMeters.text = meters.ToString("0") + " mètres";
-        //    }
-        //}
-
+        RaycastHit hit;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -60,6 +44,18 @@ public class CharacterMotor : MonoBehaviour
 
 
         }
+        if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
+        {
+            isMoving = false;
+        }
+        if (isMoving)
+        {
+            this.GetComponent<Animation>().Play("run");
+        }
+        else
+        {
+            this.GetComponent<Animation>().Play("idle");
+        }
         if (tag != "Not Clickable")
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -72,27 +68,24 @@ public class CharacterMotor : MonoBehaviour
                 ShowPathNavMesh();
                 float meters = CalculatePathLength(targetPosition) / 20;
                 displayMeters.text = meters.ToString("0") + " mètres";
-                // Il y a peut être une meilleur solution ?
-                // Debug.DrawLine(transform.position, targetPosition, Color.red);
-                if (Vector3.Distance(transform.position, inputTargetPosition) < 1)
-                {
-                    isMoving = false;
-                }
-                if (isMoving)
-                {
-                    this.GetComponent<Animation>().Play("run");
-                }
-                else
-                {
-                    this.GetComponent<Animation>().Play("idle");
-                }
+
             }
         }
+        //    }
+        //    else if(agent.tag == "AI")
+        //    {
+        //        MoveNPC();
+        //    }
+    }
+
+    void MoveNPC()
+    {
+
     }
 
     void ShowPathNavMesh()
     {
-        
+
         var nav = GetComponent<NavMeshAgent>();
         if (nav == null || nav.path == null)
             return;
