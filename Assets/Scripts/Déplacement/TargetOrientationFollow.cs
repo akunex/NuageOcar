@@ -10,6 +10,8 @@ public class TargetOrientationFollow : MonoBehaviour
     public Vector3 rotation;
     public float near;
     public float far;
+    public float interpolationSpeed;
+    public float rotationSpeed;
 
     //Paramètres de zoom de la caméra
     public float minZoom;
@@ -23,10 +25,12 @@ public class TargetOrientationFollow : MonoBehaviour
         rotation.Set(30, 45, 0);
         near = -1000;
         far = 1000;
+        interpolationSpeed = 3;
         //Set des paramètres de zoom
         maxZoom = 70f;
         minZoom = 150f;
         sensitivity = 10f;
+        rotationSpeed = 2;
     }
 
 
@@ -34,22 +38,43 @@ public class TargetOrientationFollow : MonoBehaviour
     {
         //On update la position de la caméra si jamais on change les paramètres à un moment (ça ne devrait cependant jamais être le cas car ça passera en private)
         camera.transform.position = position;
-        camera.transform.rotation = Quaternion.Euler(rotation);
+        var newRot = Quaternion.Euler(rotation);
+        //Interpolation de quaternion pour rendre la rotation plus smooth
+        camera.transform.rotation = Quaternion.Slerp(transform.rotation, newRot, interpolationSpeed * Time.deltaTime);
         camera.nearClipPlane = near;
         camera.farClipPlane = far;
+
+        //Reset de la rotation
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rotation.y = 45;
+        }
+
+        //Changement de rotation Y via les flèches
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Debug.Log("test1");
+            rotation.y += rotationSpeed;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Debug.Log("test2");
+            rotation.y -= rotationSpeed;
+        }
+
 
         //Dezoom
         if (Input.GetAxis("Mouse ScrollWheel") < 0) 
         {
-            Camera.main.orthographicSize += sensitivity;
+            camera.orthographicSize += sensitivity;
         }
         //Zoom
         if (Input.GetAxis("Mouse ScrollWheel") > 0) 
         {
-            Camera.main.orthographicSize -= sensitivity;
+            camera.orthographicSize -= sensitivity;
         }
         //Limite de zoom minimum et zoom maximum
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, maxZoom, minZoom);
+        camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, maxZoom, minZoom);
 
 
 
