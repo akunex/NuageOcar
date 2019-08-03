@@ -1104,7 +1104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2f35624a6e6cc47ab5cc32ec9fb9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 383547939}
+  camera: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
+  near: 0
+  far: 0
+  minZoom: 0
+  maxZoom: 0
+  sensitivity: 0
 --- !u!1 &873357269
 GameObject:
   m_ObjectHideFlags: 0
