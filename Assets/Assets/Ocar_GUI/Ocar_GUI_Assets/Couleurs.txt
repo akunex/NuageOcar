@@ -1,0 +1,11 @@
+Dégradé bleu: 37e4ff -> 30a0dc
+Dégradé mauve: e9107a -> a81f63
+BG barre vie vide: 1b86ad (50% opacité)
+BG barre vie mauve: 7e0140 (50% opacité)
+BG frames joueur+cible+sorts: 2d2d30 (70% opacité ~40% pour les sorts)
+Basic Frame title: 1a303c
+Basic frame content1: 213a47
+Basic frame content2: 0b1d26 (Le plus foncé utilisé dans caracs)
+Contour basic frame: 175260
+Square frame content: 175260
+Square frame contour: 289caa
