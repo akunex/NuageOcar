@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Menu_opening : MonoBehaviour
 {
-    public GameObject panel;
+    public GameObject animatedPanel;
     public GameObject windows;
 
     public void OpenPanel()
     {
-        Animator animator = panel.GetComponent<Animator>();
+        Animator animator = animatedPanel.GetComponent<Animator>();
         if(animator != null)
         {
             bool isOpen = animator.GetBool("open");

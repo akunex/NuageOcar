@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 663826030}
 --- !u!114 &192902822
 MonoBehaviour:
@@ -1090,7 +1090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000017166, y: 25.6}
+  m_AnchoredPosition: {x: 0.000017166, y: 25.599976}
   m_SizeDelta: {x: 260, y: 27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227073799
@@ -2403,8 +2403,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0.00013631}
-  m_SizeDelta: {x: 71.94, y: 16.39}
+  m_AnchoredPosition: {x: -39.54, y: 0.00013631}
+  m_SizeDelta: {x: 72.86, y: 16.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564843799
 MonoBehaviour:
@@ -2427,7 +2427,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ca4dc902a476c914cb19cffa2429929f, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 2035345359}
 --- !u!114 &599480450
 MonoBehaviour:
@@ -4065,7 +4065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 1293836237}
 --- !u!114 &827208843
 MonoBehaviour:
@@ -5191,7 +5191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 0}
 --- !u!1 &1010048586
 GameObject:
@@ -5245,7 +5245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 0}
 --- !u!114 &1010048589
 MonoBehaviour:
@@ -5707,7 +5707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 0}
 --- !u!114 &1129839163
 MonoBehaviour:
@@ -6036,7 +6036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 0}
 --- !u!114 &1264241526
 MonoBehaviour:
@@ -7769,8 +7769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0.0000046119}
-  m_SizeDelta: {x: 74.53, y: 16.39}
+  m_AnchoredPosition: {x: -40.18999, y: 0.0000046119}
+  m_SizeDelta: {x: 74.16, y: 16.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599600391
 MonoBehaviour:
@@ -7793,7 +7793,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 1ae78e9d0fa32ac4384a55fb0c8c2951, type: 3}
-  m_Type: 3
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -9820,6 +9820,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 129056867}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2038926792
@@ -9871,7 +9882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8532f039507443bb0effc6063d4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 657885765}
+  animatedPanel: {fileID: 657885765}
   windows: {fileID: 129056867}
 --- !u!1 &2055634333
 GameObject:
@@ -10042,7 +10053,7 @@ GameObject:
   - component: {fileID: 2082411216}
   - component: {fileID: 2082411215}
   m_Layer: 5
-  m_Name: BG_Frame (1)
+  m_Name: BG_Frame2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10090,7 +10101,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: bfc2837225c8e1f499ecbb86f0df92b8, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
