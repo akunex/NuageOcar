@@ -25,10 +25,13 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
         if (Input.GetMouseButtonDown(0))
         {
+            
+            
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -39,6 +42,17 @@ public class CharacterMotor : MonoBehaviour
                     agent.SetDestination(hit.point);
                     inputTargetPosition = hit.point;
                 }
+            }
+
+
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            
+            if (Physics.Raycast(ray, out hit))
+            {
+                //interactable
             }
 
 
