@@ -41,6 +41,7 @@ public class CMotor_test : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
+                //Pour savoir si on clique sur un objet avec lequel on peut interagir
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
                 {
@@ -52,15 +53,19 @@ public class CMotor_test : MonoBehaviour
         }
     }
 
+    //On se focus sur l'objet et donc on va le suivre et interagir avec lui
     void SetFocus (Interactable newFocus)
     {
+        //Si on focus un nouvel objet, on défocus l'ancien
         if (newFocus != focus)
         {
+            //Evite les bug ou le focus est null
             if (focus != null)
             {
                 focus.OnDefocused();
             }
             
+            //Le focus devient l'objet sur lequel on a clique droite et on se dirige dessus
             focus = newFocus;
             motor.FollowTarget(newFocus);
         }
@@ -69,6 +74,7 @@ public class CMotor_test : MonoBehaviour
         
     }
 
+    //On arrete de focus l'objet, on ne le suit plus et on interagit plus avec lui
     void RemoveFocus()
     {
         if (focus != null)
