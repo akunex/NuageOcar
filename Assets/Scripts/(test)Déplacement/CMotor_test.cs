@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class CMotor_test : MonoBehaviour
@@ -20,6 +21,12 @@ public class CMotor_test : MonoBehaviour
 
     void Update()
     {
+        //Permet de pas se déplacer si on clique sur l'ui
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //Déplacement clique gauche
         if (Input.GetMouseButtonDown(0))
         {
