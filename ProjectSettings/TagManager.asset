@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Not Clickable
   - AI
+  - InventorySlotPopup
   layers:
   - Default
   - TransparentFX

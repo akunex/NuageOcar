@@ -640,6 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178592465}
   - component: {fileID: 178592464}
+  - component: {fileID: 178592466}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -675,6 +676,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178592466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178592463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bd5b875ff287a45947e244b4ed0656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPopup: []
 --- !u!1 &184523776
 GameObject:
   m_ObjectHideFlags: 0
@@ -7087,6 +7101,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+--- !u!114 &1110910942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1557494564963204163, guid: 499b0ef12bd29b144832bf1d46ab513b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6579505094208388384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4360f54e3225348ad514c9fcfd8007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129839160
 GameObject:
   m_ObjectHideFlags: 0
@@ -13437,37 +13463,31 @@ PrefabInstance:
     - target: {fileID: 5750679403390749099, guid: 499b0ef12bd29b144832bf1d46ab513b,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 9.400002
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.5
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1110910942}
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Test
       objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8962603953963861822, guid: 499b0ef12bd29b144832bf1d46ab513b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
+    - target: {fileID: 2022807629, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499b0ef12bd29b144832bf1d46ab513b, type: 3}
