@@ -48,11 +48,6 @@ public class SlotClick : MonoBehaviour, IPointerClickHandler
         }
         Debug.Log("click");
     }
-    
-    public void Test()
-    {
-        Debug.Log("input pressed");
-    }
-    
+
 }
 
