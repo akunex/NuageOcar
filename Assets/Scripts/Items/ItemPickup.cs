@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 //Héritage de la classe Interactable pour pouvoir interargir avec l'objet 
-public class ItemPickUp : Interactable
+public class ItemPickup : Interactable
 {
     //Création d'un item
     public Item item;
@@ -24,6 +24,6 @@ public class ItemPickUp : Interactable
         {
             Destroy(gameObject);
         }
-        
+
     }
 }
