@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: test_item
   m_EditorClassIdentifier: 
   name: Casque cool
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fcf9cd465e8f68b4c966537d099c8512, type: 3}
   isDefaultItem: 0
