@@ -8,6 +8,7 @@ public class TargetOrientationFollow : MonoBehaviour
     public Camera camera;
     public Vector3 position;
     public Vector3 rotation;
+    public GameObject player;
     public float near;
     public float far;
     public float interpolationSpeed;
@@ -27,8 +28,8 @@ public class TargetOrientationFollow : MonoBehaviour
         far = 1000;
         interpolationSpeed = 3;
         //Set des paramètres de zoom
-        maxZoom = 70f;
-        minZoom = 150f;
+        maxZoom = 20f;
+        minZoom = 550f;
         sensitivity = 10f;
         rotationSpeed = 2;
     }
@@ -37,7 +38,7 @@ public class TargetOrientationFollow : MonoBehaviour
     void Update()
     {
         //On update la position de la caméra si jamais on change les paramètres à un moment (ça ne devrait cependant jamais être le cas car ça passera en private)
-        camera.transform.position = position;
+        camera.transform.position = player.transform.position;
         var newRot = Quaternion.Euler(rotation);
         //Interpolation de quaternion pour rendre la rotation plus smooth
         camera.transform.rotation = Quaternion.Slerp(transform.rotation, newRot, interpolationSpeed * Time.deltaTime);

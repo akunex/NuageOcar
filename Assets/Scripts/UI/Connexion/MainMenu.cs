@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         if (pseudo.text == "Beta" && password.text == "test")
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("ZoneCombat");
             error.enabled = false;
         }
         else
