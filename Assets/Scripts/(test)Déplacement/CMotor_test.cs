@@ -36,6 +36,7 @@ public class CMotor_test : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, movementMask))
             {
                 motor.MoveToPoint(hit.point);
+                this.transform.LookAt(hit.point);
                 RemoveFocus();
             }
         }

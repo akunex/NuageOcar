@@ -31,6 +31,7 @@ public class SlotClick : MonoBehaviour, IPointerClickHandler
         //Affichage popup et move du cadre sur le pointeur
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
+            Debug.Log("open popup");
             ClosePopup();
             popup.SetActive(true);
             Vector2 movePos;
@@ -46,7 +47,7 @@ public class SlotClick : MonoBehaviour, IPointerClickHandler
         {
             popup.SetActive(false);
         }
-        Debug.Log("click");
+        Debug.Log("close popup");
     }
 
 }
