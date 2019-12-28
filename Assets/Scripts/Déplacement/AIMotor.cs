@@ -89,6 +89,11 @@ public class AIMotor : MonoBehaviour
         } while (animation.isPlaying);
     }
 
+    private IEnumerator WaitForMoving()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(3.0f, 20.0f));
+    }
+
     float CalculatePathLength(Vector3 targetPosition)
     {
         // Create a path and set it based on a target position.
