@@ -26,11 +26,13 @@ public class CMotor_test : MonoBehaviour
     {
         if (!canMove)
         {
+            motor.agent.ResetPath();
             motor.agent.isStopped = true;
         }
         else
         {
             motor.agent.isStopped = false;
+            
         }
         //Permet de pas se déplacer si on clique sur l'ui
         if (EventSystem.current.IsPointerOverGameObject())
