@@ -23146,6 +23146,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   focus: {fileID: 0}
+  canMove: 0
 --- !u!114 &2133139260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23158,6 +23159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7f230f1ba55ba4b873d9f9e05668b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
 --- !u!195 &2133139261
 NavMeshAgent:
   m_ObjectHideFlags: 0
