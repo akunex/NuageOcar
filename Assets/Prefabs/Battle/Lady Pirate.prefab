@@ -803,7 +803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1689497333236281755}
   target: {fileID: 0}
-  mat: {fileID: 0}
+  targetGO: {fileID: 0}
+  test: {fileID: 0}
+  mat: {fileID: 2100000, guid: 98dfaa90a779f3e41818a88ee8ec8cc3, type: 2}
   h: 25
   gravity: -18
   debugPath: 0

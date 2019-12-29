@@ -35,15 +35,14 @@ public class SpellOne : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, movementMask))
         {
-            targetGO = Instantiate(new GameObject(), hit.point, Quaternion.identity);
+            targetGO = Instantiate(test = new GameObject(), hit.point, Quaternion.identity);
             target = targetGO.transform;
             Destroy(targetGO);
+            Destroy(test);
         }
 
-        if (debugPath)
-        {
-            DrawPath();
-        }
+        DrawPath();
+        
     }
 
     void Launch()
