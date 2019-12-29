@@ -8,11 +8,12 @@ public class UIstatsHUD : MonoBehaviour
     public Image hudPV_image;
 
 
+
   
     void Update()
     {
-        hudPV_text.text = GameObject.Find("Lady Pirate").GetComponent<CharacterStats>().currentHealth.ToString() + "/" + GameObject.Find("Lady Pirate").GetComponent<CharacterStats>().maxHealth.ToString();
-        hudPV_image.fillAmount = (((float)GameObject.Find("Lady Pirate").GetComponent<CharacterStats>().currentHealth) / ((float)GameObject.Find("Lady Pirate").GetComponent<CharacterStats>().maxHealth));
+        hudPV_text.text = GameObject.Find("Lady Pirate(Clone)").GetComponent<CharacterStats>().currentHealth.ToString() + "/" + GameObject.Find("Lady Pirate(Clone)").GetComponent<CharacterStats>().maxHealth.ToString();
+        hudPV_image.fillAmount = (((float)GameObject.Find("Lady Pirate(Clone)").GetComponent<CharacterStats>().currentHealth) / ((float)GameObject.Find("Lady Pirate(Clone)").GetComponent<CharacterStats>().maxHealth));
 
     }
 }

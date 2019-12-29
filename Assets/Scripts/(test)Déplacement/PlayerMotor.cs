@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMotor : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     Transform target;
 
     void Start()

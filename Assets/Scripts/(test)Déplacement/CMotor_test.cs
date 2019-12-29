@@ -13,14 +13,25 @@ public class CMotor_test : MonoBehaviour
 
     public Interactable focus;
 
+    public bool canMove;
+
     void Start()
     {
+        canMove = true;
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
     }
 
     void Update()
     {
+        if (!canMove)
+        {
+            motor.agent.isStopped = true;
+        }
+        else
+        {
+            motor.agent.isStopped = false;
+        }
         //Permet de pas se déplacer si on clique sur l'ui
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -28,7 +39,7 @@ public class CMotor_test : MonoBehaviour
         }
 
         //Déplacement clique gauche
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canMove)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
