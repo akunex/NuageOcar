@@ -50,6 +50,7 @@ public class TurnBased : MonoBehaviour
     {
         
         GameObject playerGO = Instantiate(player, new Vector3(800, 3, 246), Quaternion.identity);
+        playerGO.name = "Lady Pirate";
         playerUnit = playerGO.GetComponent<PlayerStat>();
         playerMovement = playerGO.GetComponent<CMotor_test>();
 
