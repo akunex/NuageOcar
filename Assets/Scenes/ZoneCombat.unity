@@ -867,6 +867,7 @@ GameObject:
   - component: {fileID: 129056871}
   - component: {fileID: 129056870}
   - component: {fileID: 129056869}
+  - component: {fileID: 129056872}
   m_Layer: 5
   m_Name: Equipement_frame
   m_TagString: Untagged
@@ -959,6 +960,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129056867}
   m_CullTransparentMesh: 0
+--- !u!114 &129056872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129056867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb44f96f033abc4c913a4c769cbc8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frame: {fileID: 129056870}
 --- !u!224 &134414639 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6579505095544477675, guid: 499b0ef12bd29b144832bf1d46ab513b,
@@ -12718,6 +12732,7 @@ GameObject:
   - component: {fileID: 1293836240}
   - component: {fileID: 1293836239}
   - component: {fileID: 1293836242}
+  - component: {fileID: 1293836243}
   m_Layer: 5
   m_Name: Caracteristiques_frame
   m_TagString: Untagged
@@ -12823,6 +12838,19 @@ MonoBehaviour:
   pv: {fileID: 1564397102}
   armure: {fileID: 1663901796}
   corps: {fileID: 96890912}
+--- !u!114 &1293836243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293836237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb44f96f033abc4c913a4c769cbc8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frame: {fileID: 1293836240}
 --- !u!1001 &1317802886
 PrefabInstance:
   m_ObjectHideFlags: 0
