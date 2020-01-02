@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SpellOne : MonoBehaviour
 {
 
+    public Button spell;
     public Rigidbody ball;
     public Transform target;
     public GameObject targetGO;
-    public GameObject test;
+    public GameObject instanciatedGO;
     public Material mat;
     public float h = 25;
     public float gravity = -18;
@@ -16,33 +18,71 @@ public class SpellOne : MonoBehaviour
 
     public LayerMask movementMask;
 
+    public bool respectedDistance;
+    public bool useSpell;
+
+    private void Awake()
+    {
+        spell = GetComponent<Button>();
+    }
     void Start()
     {
         ball.useGravity = false;
         target = null;
-        test.name = "bite";
+        respectedDistance = false;
+        useSpell = false;
+        spell = GameObject.Find("Arrow").GetComponent<Button>();
+        
     }
 
     void Update()
+    {
+
+        if(spell !=null)
+            spell.onClick.AddListener(OnSpellButton);
+        if (useSpell)
+            DrawSpell();
+       
+        
+    }
+
+   
+
+    public void DrawSpell()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Launch();
         }
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, movementMask))
         {
-            targetGO = Instantiate(test = new GameObject(), hit.point, Quaternion.identity);
+            targetGO = Instantiate(instanciatedGO = new GameObject(), hit.point, Quaternion.identity);
             target = targetGO.transform;
+            targetGO.name = "Trait";
+            instanciatedGO.name = "Trait";
+            Debug.Log(Vector3.Distance(hit.point, ball.gameObject.transform.position));
+            if (Vector3.Distance(hit.point, ball.gameObject.transform.position) < 250)
+            {
+                respectedDistance = true;
+            }
+            else
+            {
+                respectedDistance = false;
+            }
             Destroy(targetGO);
-            Destroy(test);
+            Destroy(instanciatedGO);
         }
 
-        DrawPath();
-        
+        if (respectedDistance)
+            DrawPath();
+    }
+
+    public void OnSpellButton()
+    {
+        useSpell = !useSpell;
     }
 
     void Launch()
@@ -54,6 +94,12 @@ public class SpellOne : MonoBehaviour
 
     LaunchData CalculateLaunchData()
     {
+        if(target == null)
+        {
+            targetGO = new GameObject();
+            target = targetGO.transform;
+            target.position = new Vector3(0, 0, 0);
+        }
         float displacementY = target.position.y - ball.position.y;
         Vector3 displacementXZ = new Vector3(target.position.x - ball.position.x, 0, target.position.z - ball.position.z);
         float time = Mathf.Sqrt(-2 * h / gravity) + Mathf.Sqrt(2 * (displacementY - h) / gravity);
