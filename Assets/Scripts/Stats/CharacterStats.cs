@@ -2,7 +2,7 @@
 
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth = 96;
+    public int maxHealth = 100;
     public int currentHealth { get; private set; }
 
     public Stat damage;
@@ -31,11 +31,10 @@ public class CharacterStats : MonoBehaviour
 
 
         currentHealth -= damage;
-        Debug.Log(transform.name + "takes " + damage + "damage");
+        Debug.Log(transform.name + "subit " + damage + " dégats");
 
         if(currentHealth <= 0)
         {
-            currentHealth = maxHealth;
             Die();
         }
     }
@@ -43,7 +42,6 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die()
     {
         //Overwirtten method
-
         Debug.Log(transform.name + " est mort");
     }
 }

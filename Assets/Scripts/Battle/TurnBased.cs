@@ -28,6 +28,9 @@ public class TurnBased : MonoBehaviour
 
     private bool canMove;
 
+
+    public Button spell1;
+
     private void Start()
     {
 
@@ -45,11 +48,10 @@ public class TurnBased : MonoBehaviour
         {
             playerMovement.canMove = false;
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log(playerMovement.canMove);
-        }
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            OnSpellButton();
+        spell1.onClick.AddListener(OnSpellButton);
+
     }
 
     IEnumerator SetupBattle()
@@ -76,7 +78,7 @@ public class TurnBased : MonoBehaviour
         canMove = true;
         bg_info.SetActive(true);
         player_turn_text.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         player_turn_text.SetActive(false);
         bg_info.SetActive(false);
     }
@@ -86,7 +88,7 @@ public class TurnBased : MonoBehaviour
         canMove = false;
         bg_info.SetActive(true);
         enemy_turn_text.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         enemy_turn_text.SetActive(false);
         bg_info.SetActive(false);
 
@@ -121,6 +123,8 @@ public class TurnBased : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        playerSpell.ActivateSpell();
+
         //Attaque
 
         yield return new WaitForSeconds(2f);

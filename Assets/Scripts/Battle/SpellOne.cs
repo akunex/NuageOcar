@@ -11,6 +11,7 @@ public class SpellOne : MonoBehaviour
     public Transform target;
     public GameObject targetGO;
     public GameObject arrowGO;
+    public GameObject arrowGOClone;
     public Material mat;
     public float h = 25;
     public float gravity = -18;
@@ -43,22 +44,14 @@ public class SpellOne : MonoBehaviour
 
     void Update()
     {
-
-        if(spell != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                OnSpellButton();
-            spell.onClick.AddListener(OnSpellButton);
-        }
-
-        
+      
 
         if (useSpell)
         {
             if (DrawSpell() && Input.GetMouseButtonDown(0))
             {
-                arrowGO = Instantiate(arrowGO, new Vector3(this.transform.position.x, this.transform.position.y + 3, this.transform.position.z), Quaternion.identity);
-                ball = arrowGO.GetComponent<Rigidbody>();
+                arrowGOClone = Instantiate(arrowGO, new Vector3(this.transform.position.x, this.transform.position.y + 40, this.transform.position.z), Quaternion.identity);
+                ball = arrowGOClone.GetComponent<Rigidbody>();
                 Launch();
                 ball = this.GetComponent<Rigidbody>();
                 useSpell = !useSpell;
@@ -109,7 +102,7 @@ public class SpellOne : MonoBehaviour
             return false;
     }
 
-    public void OnSpellButton()
+    public void ActivateSpell()
     {
         useSpell = !useSpell;
     }
@@ -187,4 +180,6 @@ public class SpellOne : MonoBehaviour
         }
 
     }
+
+
 }
