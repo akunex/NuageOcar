@@ -15935,7 +15935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2559957333896656527, guid: d4b7ca957ab1f5042b5159df15c41249, type: 3}
-  enemy: {fileID: 0}
+  enemy: {fileID: 324360950}
   bg_info: {fileID: 1043293260}
   player_turn_text: {fileID: 170422224}
   enemy_turn_text: {fileID: 120847462}
@@ -16380,15 +16380,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4666283878823798, guid: 0c6d87199f687400184146c841adf2bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -181.99747
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 4666283878823798, guid: 0c6d87199f687400184146c841adf2bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -234.2
+      value: -257.9
       objectReference: {fileID: 0}
     - target: {fileID: 4666283878823798, guid: 0c6d87199f687400184146c841adf2bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 228.85928
+      value: 158
       objectReference: {fileID: 0}
     - target: {fileID: 4666283878823798, guid: 0c6d87199f687400184146c841adf2bd, type: 3}
       propertyPath: m_LocalRotation.x

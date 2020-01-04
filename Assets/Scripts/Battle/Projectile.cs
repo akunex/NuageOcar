@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-        Debug.Log("collision avec " + col.gameObject.name);
         if (col.gameObject.name == "Dwarf MasterM")
         {
             enemy = GameObject.Find(col.gameObject.name);

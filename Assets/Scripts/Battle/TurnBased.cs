@@ -62,10 +62,11 @@ public class TurnBased : MonoBehaviour
         playerUnit = playerGO.GetComponent<PlayerStat>();
         playerMovement = playerGO.GetComponent<CMotor_test>();
         playerSpell = playerGO.GetComponent<SpellOne>();
-
+    
         canMove = false;
 
         //Same Enemy
+        enemyUnit = enemy.GetComponent<PlayerStat>();
 
         yield return new WaitForSeconds(0);
 
@@ -128,7 +129,10 @@ public class TurnBased : MonoBehaviour
         //Attaque
 
         yield return new WaitForSeconds(2f);
-
+        if(enemyUnit.currentHealth <= 0)
+        {
+            isDead = true;
+        }
         if (isDead)
         {
             state = BattleState.WON;

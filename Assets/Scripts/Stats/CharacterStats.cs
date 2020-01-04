@@ -42,6 +42,7 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die()
     {
         //Overwirtten method
+        currentHealth = 0;
         Debug.Log(transform.name + " est mort");
     }
 }
