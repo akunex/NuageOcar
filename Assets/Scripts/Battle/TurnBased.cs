@@ -14,6 +14,7 @@ public class TurnBased : MonoBehaviour
 
     PlayerStat playerUnit;
     CMotor_test playerMovement;
+    SpellOne playerSpell;
     PlayerStat enemyUnit;
 
     public BattleState state;
@@ -31,7 +32,7 @@ public class TurnBased : MonoBehaviour
 
     private void Update()
     {
-        if (canMove == true)
+        if (canMove == true && playerSpell.useSpell != true)
         {
             playerMovement.canMove = true;
         }
@@ -53,12 +54,13 @@ public class TurnBased : MonoBehaviour
         playerGO.name = "Lady Pirate";
         playerUnit = playerGO.GetComponent<PlayerStat>();
         playerMovement = playerGO.GetComponent<CMotor_test>();
+        playerSpell = playerGO.GetComponent<SpellOne>();
 
         canMove = false;
 
         //Same Enemy
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();

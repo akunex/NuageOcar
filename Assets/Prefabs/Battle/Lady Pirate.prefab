@@ -686,7 +686,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2559957333896656527}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -801,17 +801,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb7be58e71cced478cd1540e7ad8922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spell: {fileID: 0}
   ball: {fileID: 1689497333236281755}
   target: {fileID: 0}
   targetGO: {fileID: 0}
-  test: {fileID: 0}
+  arrowGO: {fileID: 7207453513273639331, guid: f30856987c642ad4bba53da3e3203dfb, type: 3}
   mat: {fileID: 2100000, guid: 98dfaa90a779f3e41818a88ee8ec8cc3, type: 2}
   h: 25
-  gravity: -18
+  gravity: -1000
   debugPath: 0
   movementMask:
     serializedVersion: 2
     m_Bits: 1024
+  respectedDistance: 0
+  useSpell: 0
 --- !u!1 &2927069715727568723
 GameObject:
   m_ObjectHideFlags: 0

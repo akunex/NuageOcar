@@ -9,7 +9,7 @@ public class SpellOne : MonoBehaviour
     public Rigidbody ball;
     public Transform target;
     public GameObject targetGO;
-    public GameObject instanciatedGO;
+    public GameObject arrowGO;
     public Material mat;
     public float h = 25;
     public float gravity = -18;
@@ -21,6 +21,8 @@ public class SpellOne : MonoBehaviour
     public bool respectedDistance;
     public bool useSpell;
 
+    CMotor_test playerMovement;
+
     private void Awake()
     {
         spell = GetComponent<Button>();
@@ -28,42 +30,65 @@ public class SpellOne : MonoBehaviour
     void Start()
     {
         ball.useGravity = false;
+        Instantiate(targetGO = new GameObject("Trait"), new Vector3(0,0,0), Quaternion.identity);
+        targetGO.name = "Trait";
         target = null;
         respectedDistance = false;
         useSpell = false;
         spell = GameObject.Find("Arrow").GetComponent<Button>();
-        
+
+
     }
 
     void Update()
     {
 
-        if(spell !=null)
+        if(spell != null)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+                OnSpellButton();
             spell.onClick.AddListener(OnSpellButton);
+        }
+
+        
+
         if (useSpell)
-            DrawSpell();
+        {
+            if (DrawSpell() && Input.GetMouseButtonDown(0))
+            {
+                arrowGO = Instantiate(arrowGO, new Vector3(this.transform.position.x, this.transform.position.y + 3, this.transform.position.z), Quaternion.identity);
+                ball = arrowGO.GetComponent<Rigidbody>();
+                Launch();
+                ball = this.GetComponent<Rigidbody>();
+                Debug.Log("spell lauched");
+                useSpell = !useSpell;
+            }
+            if (DrawSpell() && Input.GetMouseButtonDown(1))
+            {
+                useSpell = !useSpell;
+            }
+
+
+        }
+
        
         
     }
 
    
 
-    public void DrawSpell()
+    public bool DrawSpell()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Launch();
-        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, movementMask))
         {
-            targetGO = Instantiate(instanciatedGO = new GameObject(), hit.point, Quaternion.identity);
+ 
+            targetGO.transform.position = hit.point;
             target = targetGO.transform;
-            targetGO.name = "Trait";
-            instanciatedGO.name = "Trait";
-            Debug.Log(Vector3.Distance(hit.point, ball.gameObject.transform.position));
+ 
+
             if (Vector3.Distance(hit.point, ball.gameObject.transform.position) < 250)
             {
                 respectedDistance = true;
@@ -72,17 +97,23 @@ public class SpellOne : MonoBehaviour
             {
                 respectedDistance = false;
             }
-            Destroy(targetGO);
-            Destroy(instanciatedGO);
+
         }
 
         if (respectedDistance)
+        {
             DrawPath();
+            return true;
+        }
+        else
+            return false;
     }
 
     public void OnSpellButton()
     {
+        Debug.Log(useSpell);
         useSpell = !useSpell;
+        Debug.Log(useSpell);
     }
 
     void Launch()
@@ -131,7 +162,7 @@ public class SpellOne : MonoBehaviour
 
     void DrawLine(Vector3 start, Vector3 end, Color color, float duration)
     {
-        GameObject myLine = new GameObject();
+        GameObject myLine = new GameObject("Trait DrawLine");
         myLine.transform.position = start;
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
