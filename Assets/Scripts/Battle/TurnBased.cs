@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
@@ -16,6 +17,10 @@ public class TurnBased : MonoBehaviour
     CMotor_test playerMovement;
     SpellOne playerSpell;
     PlayerStat enemyUnit;
+
+    public GameObject bg_info;
+    public GameObject player_turn_text;
+    public GameObject enemy_turn_text;
 
     public BattleState state;
 
@@ -60,22 +65,31 @@ public class TurnBased : MonoBehaviour
 
         //Same Enemy
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0);
 
         state = BattleState.PLAYERTURN;
-        PlayerTurn();
+        StartCoroutine(PlayerTurn());
     }
 
-    void PlayerTurn()
+    IEnumerator PlayerTurn()
     {
-        Debug.Log("Tour du joueur");
         canMove = true;
+        bg_info.SetActive(true);
+        player_turn_text.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        player_turn_text.SetActive(false);
+        bg_info.SetActive(false);
     }
 
     IEnumerator EnemyTurn()
     {
         canMove = false;
-        yield return new WaitForSeconds(2f);
+        bg_info.SetActive(true);
+        enemy_turn_text.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        enemy_turn_text.SetActive(false);
+        bg_info.SetActive(false);
+
         if (isDead)
         {
             state = BattleState.LOST;
@@ -84,7 +98,7 @@ public class TurnBased : MonoBehaviour
         else
         {
             state = BattleState.PLAYERTURN;
-            PlayerTurn();
+            StartCoroutine(PlayerTurn());
         }
     }
 

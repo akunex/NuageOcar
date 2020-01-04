@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class SpellOne : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class SpellOne : MonoBehaviour
 
         if(spell != null)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
                 OnSpellButton();
             spell.onClick.AddListener(OnSpellButton);
         }
@@ -60,7 +61,6 @@ public class SpellOne : MonoBehaviour
                 ball = arrowGO.GetComponent<Rigidbody>();
                 Launch();
                 ball = this.GetComponent<Rigidbody>();
-                Debug.Log("spell lauched");
                 useSpell = !useSpell;
             }
             if (DrawSpell() && Input.GetMouseButtonDown(1))
@@ -111,9 +111,7 @@ public class SpellOne : MonoBehaviour
 
     public void OnSpellButton()
     {
-        Debug.Log(useSpell);
         useSpell = !useSpell;
-        Debug.Log(useSpell);
     }
 
     void Launch()
