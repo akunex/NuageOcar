@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Casque de protection
   m_EditorClassIdentifier: 
   name: Casque de protection
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 6ddd978486481f9498b09d21ecaf0cf7, type: 3}
   isDefaultItem: 0
   equipSlot: 0
   armorModifier: 3

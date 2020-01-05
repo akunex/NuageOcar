@@ -8,4 +8,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Arena01");
     }
 
+    public void LoadScene_zonecombat()
+    {
+        SceneManager.LoadScene("ZoneCombat");
+    }
+
 }

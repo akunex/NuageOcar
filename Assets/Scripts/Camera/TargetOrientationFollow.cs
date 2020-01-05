@@ -54,12 +54,12 @@ public class TargetOrientationFollow : MonoBehaviour
         //Changement de rotation Y via les flèches
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("test1");
+            
             rotation.y += rotationSpeed;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Debug.Log("test2");
+            
             rotation.y -= rotationSpeed;
         }
 

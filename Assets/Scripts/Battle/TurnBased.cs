@@ -62,7 +62,6 @@ public class TurnBased : MonoBehaviour
             canMove = true;
             mousePM_text.SetActive(true);
             mousePM_text.GetComponent<TextMeshProUGUI>().text = playerMovement.CalcDistance().ToString();
-            Debug.Log(playerMovement.CalcDistance());
             if(canMove == true && Input.GetMouseButtonDown(0) && playerSpell.useSpell != true)
             {
                 if ((int)playerMovement.CalcDistance() <= playerUnit.currentPM)
