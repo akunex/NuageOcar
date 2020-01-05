@@ -6,12 +6,6 @@ using UnityEngine.UI;
 public class LockWindow : MonoBehaviour
 {
     public Image frame;
-    public Camera camera;
-
-    private Vector3 TopLeftCornerCamera;
-    private Vector3 TopRightCornerCamera;
-    private Vector3 BottomRightCornerCamera;
-    private Vector3 BottomLeftCornerCamera;
 
     // Start is called before the first frame update
     void Start()
