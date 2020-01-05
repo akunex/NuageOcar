@@ -16,12 +16,16 @@ public class SpellOne : MonoBehaviour
     public float h = 25;
     public float gravity = -18;
 
+    PlayerStat playerUnit;
+
     public bool debugPath;
 
     public LayerMask movementMask;
 
     public bool respectedDistance;
     public bool useSpell;
+    public bool mouse0;
+    public bool mouse1;
 
     CMotor_test playerMovement;
 
@@ -37,8 +41,9 @@ public class SpellOne : MonoBehaviour
         target = null;
         respectedDistance = false;
         useSpell = false;
+        
         spell = GameObject.Find("Arrow").GetComponent<Button>();
-
+        playerUnit = this.GetComponent<PlayerStat>();
 
     }
 
@@ -48,27 +53,33 @@ public class SpellOne : MonoBehaviour
 
         if (useSpell)
         {
-            if (DrawSpell() && Input.GetMouseButtonDown(0))
-            {
-                arrowGOClone = Instantiate(arrowGO, new Vector3(this.transform.position.x, this.transform.position.y + 40, this.transform.position.z), Quaternion.identity);
-                ball = arrowGOClone.GetComponent<Rigidbody>();
-                Launch();
-                ball = this.GetComponent<Rigidbody>();
-                useSpell = !useSpell;
-            }
-            if (DrawSpell() && Input.GetMouseButtonDown(1))
-            {
-                useSpell = !useSpell;
-            }
-
-
+            UseSpell();
         }
 
        
         
     }
 
-   
+   public bool UseSpell()
+    {
+        if (DrawSpell() && Input.GetMouseButtonDown(0))
+        {
+            playerUnit.LoosePA(4);
+            arrowGOClone = Instantiate(arrowGO, new Vector3(this.transform.position.x, this.transform.position.y + 40, this.transform.position.z), Quaternion.identity);
+            ball = arrowGOClone.GetComponent<Rigidbody>();
+            Launch();
+            ball = this.GetComponent<Rigidbody>();
+            useSpell = !useSpell;
+            return true;
+
+        }
+        if (DrawSpell() && Input.GetMouseButtonDown(1))
+        {
+            useSpell = !useSpell;
+
+        }
+        return false;
+    }
 
     public bool DrawSpell()
     {

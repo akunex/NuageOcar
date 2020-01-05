@@ -40,6 +40,8 @@ public class CMotor_test : MonoBehaviour
             return;
         }
 
+        
+
         //Déplacement clique gauche
         if (Input.GetMouseButtonDown(0) && canMove)
         {
@@ -72,6 +74,21 @@ public class CMotor_test : MonoBehaviour
         
 
         }
+    }
+
+    public int CalcDistance()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, movementMask))
+        {
+            return (int)Vector3.Distance(this.transform.position, hit.point);
+        }
+        else
+        {
+            return 1000000;
+        }
+            
     }
 
     //On se focus sur l'objet et donc on va le suivre et interagir avec lui

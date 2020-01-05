@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
@@ -18,9 +19,13 @@ public class TurnBased : MonoBehaviour
     SpellOne playerSpell;
     PlayerStat enemyUnit;
 
+    public GameObject mousePM_text;
+
     public GameObject bg_info;
     public GameObject player_turn_text;
     public GameObject enemy_turn_text;
+    public GameObject won_battle_text;
+    public GameObject lost_battle_text;
 
     public BattleState state;
 
@@ -52,6 +57,29 @@ public class TurnBased : MonoBehaviour
             OnSpellButton();
         spell1.onClick.AddListener(OnSpellButton);
 
+        if(state == BattleState.PLAYERTURN)
+        {
+            canMove = true;
+            mousePM_text.SetActive(true);
+            mousePM_text.GetComponent<TextMeshProUGUI>().text = playerMovement.CalcDistance().ToString();
+            Debug.Log(playerMovement.CalcDistance());
+            if(canMove == true && Input.GetMouseButtonDown(0) && playerSpell.useSpell != true)
+            {
+                if ((int)playerMovement.CalcDistance() <= playerUnit.currentPM)
+                    playerUnit.LoosePM(playerMovement.CalcDistance());
+                else
+                    canMove = false;
+            }
+            if (playerUnit.currentPM <= 0)
+            {
+                canMove = false;
+            }
+        }
+        else
+        {
+            mousePM_text.SetActive(false);
+        }
+
     }
 
     IEnumerator SetupBattle()
@@ -76,7 +104,10 @@ public class TurnBased : MonoBehaviour
 
     IEnumerator PlayerTurn()
     {
+        playerUnit.WinPA(8);
+        playerUnit.WinPM(250);
         canMove = true;
+
         bg_info.SetActive(true);
         player_turn_text.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -109,7 +140,8 @@ public class TurnBased : MonoBehaviour
     {
         if (state != BattleState.PLAYERTURN)
             return;
-
+        if (playerUnit.currentPA == 0)
+            return;
         StartCoroutine(PlayerAttack());
     }
 
@@ -125,7 +157,7 @@ public class TurnBased : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         playerSpell.ActivateSpell();
-
+        
         //Attaque
 
         yield return new WaitForSeconds(2f);
@@ -146,11 +178,15 @@ public class TurnBased : MonoBehaviour
         canMove = false;
         if (state == BattleState.WON)
         {
-            Debug.Log("You won the battle!");
+            bg_info.SetActive(true);
+            won_battle_text.SetActive(true);
+            SceneManager.LoadScene("ZoneCombat");
         }
         else if (state == BattleState.LOST)
         {
-            Debug.Log("You were defeated.");
+            bg_info.SetActive(true);
+            lost_battle_text.SetActive(true);
+            SceneManager.LoadScene("ZoneCombat");
         }
     }
 
